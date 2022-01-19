@@ -30,6 +30,11 @@ cuartos_de_hotel = [101, 102, 103, 201, 202, 203]
 cuarto_ocupado = [True, False, False, True, True, False]
 ```
 
+Ejemplo:
+```py
+
+```
+
 Sin embargo, este tipo de organización rápidamente se sale de control. ¿Qué tal que quisiéramos añadir más propiedades, cómo si el cuarto ya fue aseado o no? ¿Si el cuarto tiene cama doble o sencilla? Esto nos lleva a una falta fuerte de organización y es justamente el punto que justifica la existencia de clases.
 
 Las clases nos permiten crear nuevos tipos que contiene información arbitraria sobre un objeto. En el caso del hotel, podríamos crear dos clases Hotel() y Cuarto() que nos permitiera dar seguimiento a las propiedades como número de cuartos, ocupación, aseo, tipo de habitación, etc.
@@ -96,3 +101,40 @@ Fromas de interactuar con un objeto:
 - Creación
 - Manipulación
 - Destrucción
+
+### Tipos de datos abstractos
+- Ventajas
+  - Descomposición - Estructurar objetos mas pequeños 
+  - Abstracción - No nos preocupamos el funcionamiento del proceso de su comportamiento.
+  - Encapsulación - Podemos esconder ciertos datos que solo son relevantes internamente en el objeto.
+
+**Definición de clase**
+```py
+# Primero definimos el nombre de la clase y podemos determinar si hereda de otra clase.
+class <nombre_de_la_clase>(<super_clase>):
+    # El método init es un constructor, y siempre los métodos dentro de los parámetros inician con el parámetro self
+    def __init__(self, <params>):
+        <espresion>
+    # Las clases pueden tener comportamientos, y estos los definimos con los métodos.
+    def <nombre_del_metodo>(self, <params>):
+        <expresion>
+```
+Ejemplo:
+
+```py
+class Persona:
+
+	def __init__(self, nombre, edad):
+		self.nombre = nombre
+		self.edad = edad
+
+	def saluda(self, otra_persona):
+		return f'Hola {otra_persona.nombre}, me llamo {self.nombre}.'
+		
+	# Uso
+	>>> david = Persona('David'. 35)
+	>>> erika = Persona('Erika', 32)
+	
+	>>> david.saluda(erika)
+	'Hola Erika, me llamo David'
+``` 
