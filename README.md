@@ -206,6 +206,48 @@ class Motor:
 	
 	def inyecta_gasolina(self, cantidad):
 		pass
-		
-		
+```
+
+## Abstracción
+
+- Enfocarnos en la información relevante, generar una interfaz mediante la cual nosotros podemos interactuar con cualquier tipo de objeto sin enfocarnos en los detalles técnicos.
+- Separar la información central de los detalles secundarios.
+- Podemos utilizar variables y métodos (privados o públicos)
+
+Como ejemplo crearemos una clase sencilla que represent a una lavadora:
+```py
+class Lavadora:
+
+	def __init__(self):
+		pass # No hay cuerpo en la función
+	
+	def lavar(self, temperatura='caliente'):
+		# Los métodos privados de la clase no son relevantes
+		# para el uso fuera de la clase, por convención
+		# se inicia con _
+		self._llenar_tanque_de_agua(temperatura)
+		self._anadir_jabon()
+		self._lavar()
+		self._centrifugar()
+
+	def _llenar_tanque_de_agua(self, temperatura):
+		print(f'Llenando el tanque con agua {temperatura}')
+
+	def _anadir_jabon(self):
+		print('Anadiendo jabon')
+	
+	def _lavar(self):
+		print('Lavando la ropa')
+
+	def _centrifugar(self):
+		print('Centrifugando la ropa')
+
+if __name__ = '__main__':
+	lavadora = Lavadora()
+	lavadora.lavar()
+
+	>>> LLenando el tanque con agua caliente
+	>>> Anadiendo jabon
+	>>> Lavando la ropa
+	>>> Centrifugando la ropa
 ```
