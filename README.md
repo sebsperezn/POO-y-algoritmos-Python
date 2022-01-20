@@ -138,3 +138,74 @@ class Persona:
 	>>> david.saluda(erika)
 	'Hola Erika, me llamo David'
 ``` 
+Lo que nos da la clase es un tipo de 'molde'. Es una forma en la que nosotros podemos definir cuáles son las características que esta clase va a tener, y estas características las van a poder utilizar todas las instancias de clase.
+
+## Instancias
+- Mientras que la clase es un molde, a los objetos creados se les conoce como instancias.
+- Cuando se crea una instancia, se ejecuta el método __init__
+- Todos los métodos de una clase reciben implícitamente como primer parámetro self
+
+- Los atributos de clase nos permiten:
+	- Representar datos
+	- Procedimientos para interactuar con los mismos(métodos)
+	- Mecanismos para esconder la representación interna (variables privadas)
+- Se accede a los atributos con la notación punto
+- Puede tener atributos privados. Por convención comienza con _
+
+```py
+class Coordenada:
+	def __init__(self, x, y):
+		self.x = x
+		self.y = y
+		
+	def distancia(self, otra_coordenada):
+		x_diff = (self.x - otra_coordenada.x)**2
+		y_diff = (self.y - otra_coordenada.y)**2
+		
+		return (x_diff + y_diff)**0.5
+		
+if __name__ == '__main__':
+	coord_1 = Coordenada(3, 30)
+	coord_2 = Coordenada(4, 8)
+	
+	print(coord_1.distancia(coord_2))
+	>>> 22.02271554554524
+	print(isInstance(coord_2, Coordenada))
+	>>> True
+```
+
+## Decomposición
+
+La descomposición se refiere a partir un problema en problemas más pequeños. Las clases permiten crear mayores abstracciones en forma de componentes. Cada clase se encarga de una parte del problema y el programa se vuelve más facil de mantener.
+
+Ejemplo de descomposición:
+
+Al principio la clase Automovil se vería asi:
+```py
+class Automovil:
+
+	def __init__(self, modelo, marca, color):
+		self.modelo = modelo
+		self.marca = marca
+		self.color = color
+		self._estado = 'reposo' #Variable privada
+		self._motor = Motor(cilindros=4)
+	
+	def acelerar(self, tipo='despacio'):
+		if tipo == 'rapida':
+			self._motor.inyecta_gasolina(10)
+		else:
+			self._motor.inyecta_gasolina(3)
+		self.estado = 'en movimiento'
+class Motor:
+
+	def __init__(self, cilindros, tipo='gasolina' '''default keyword''')
+		self.cilindros = cilindros
+		self.tipo = tipo
+		self._temperatura = 0
+	
+	def inyecta_gasolina(self, cantidad):
+		pass
+		
+		
+```
