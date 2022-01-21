@@ -432,7 +432,7 @@ De esta manera usamos el decorador @property para utilizar getters y setters de 
 Ejemplo:
 
 ```py
-class CasillaDeBotacion:
+class CasillaDeVotacion:
 
 	def __init__(self, identificador, pais):
 		self._identificador = identificador
